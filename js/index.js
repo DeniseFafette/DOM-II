@@ -31,11 +31,30 @@ navlinks.forEach(link => {
     link.addEventListener('mouseenter', event => {   
         // highlight the mouseenter target
           event.target.style.color = 'skyblue'
-})
 
-});
 // reset the color after a short delay
 //   setTimeout(function() {
 //     event.target.style.color = 'grey'
 //   }, 500);
 // }, false);
+    })
+});
+
+//Event 4 - Scroll: (scale size of cta bus image)
+let last_known_scroll_position = 0;
+let ticking = false;
+
+function doSomething(scroll_pos) {
+  // Do something with the scroll position
+}
+const body = document.querySelector('body');
+window.addEventListener('scroll', function(event) {
+  last_known_scroll_position = window.scrollY;
+  body.style.backgroundColor = 'skyblue'
+  if (!ticking) {
+    setTimeout(function() {
+            body.style.backgroundColor = 'white'
+          }, 1000);
+       
+  }
+});

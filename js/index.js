@@ -63,7 +63,17 @@ window.addEventListener('scroll', function(event) {
 //Event 6 - Click: (signup button click)
 //Event 7 - Mouse hover: (scale size of all images on hover)
 //Event 8 - Mouse select text: (change color of text)
+
 //Event 9 - Network online: (scale size of cta bus image)
+window.addEventListener('online', (event) => {
+    console.log("You are now connected to the network.");
+});
+
+//console.log(window);
+//ononline version is another way to do this
+// window.ononline = (event) => {
+//   console.log("You are now connected to the network.");
+// };
 
 //Event 10 - Clipboard copy: (scale size of cta bus image)
 let text = document.querySelectorAll('p');

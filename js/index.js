@@ -54,7 +54,29 @@ window.addEventListener('scroll', function(event) {
   if (!ticking) {
     setTimeout(function() {
             body.style.backgroundColor = 'white'
-          }, 1000);
+          }, 2000);
        
   }
 });
+
+//Event 5 - Keydown: (any key pressed)
+//Event 6 - Click: (signup button click)
+//Event 7 - Mouse hover: (scale size of all images on hover)
+//Event 8 - Mouse select text: (change color of text)
+//Event 9 - Network online: (scale size of cta bus image)
+
+//Event 10 - Clipboard copy: (scale size of cta bus image)
+let text = document.querySelectorAll('p');
+
+
+text.forEach(e => {
+    e.addEventListener('copy', (event) => {
+        let selection = document.getSelection();
+        event.clipboardData.setData('text/plain', selection.toString().toUpperCase());
+        event.preventDefault();
+        console.log(event.clipboardData.getData('text/plain'));
+    })
+    
+});
+
+

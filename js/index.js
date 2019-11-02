@@ -59,25 +59,59 @@ window.addEventListener('scroll', function(event) {
   }
 });
 
-//Event 5 - Keydown: (any key pressed)
+//Event 5 - Keydown: (any key is pressed)
+document.addEventListener('keydown', logKey);
+
+function logKey(keyDown) {
+  log.textContent += ` ${keyDown.code}`;
+  console.log(logKey.log.textContent);
+};
+
 //Event 6 - Click: (signup button click)
-//Event 7 - Mouse hover: (scale size of all images on hover)
+let signUpButton = document.querySelectorAll('.btn');
+
+signUpButton.forEach(buttonClick => {
+    buttonClick.addEventListener('click', (event) => {
+    event.textContent = 'Welcome to Fun Bus!!!'
+    })
+});
+
+//Event 7 - Mouse over: (scale size of all images on hover)
+let contentImages = document.querySelectorAll('img'); 
+// This handler will be executed only once when the cursor moves over the unordered list
+contentImages.forEach(mouseOver => {
+    mouseOver.addEventListener('mouseenter', (event) => {   
+        // highlight the mouseenter target
+        event.target.style.transform = 'scale(1.2)'
+    })
+});
+
 //Event 8 - Mouse select text: (change color of text)
+//<input value="Try selecting some text in this element.">
+//<p id="log"></p>
+
+// function logSelection(event) {
+//   const log = document.getElementById('log');
+//   const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
+//   log.textContent = `You selected: ${selection}`;
+// }
+
+// const input = document.querySelector('input');
+// input.addEventListener('select', logSelection);
 
 //Event 9 - Network online: (scale size of cta bus image)
 window.addEventListener('online', (event) => {
     console.log("You are now connected to the network.");
 });
+    //You can test this by going to the network tab of your console ... select offline and then select online!
+    //console.log(window); to see all of the events you can add
+    //ononline version is an alternative code solution
+    // window.ononline = (event) => {
+    //   console.log("You are now connected to the network.");
+    // };
 
-//console.log(window);
-//ononline version is another way to do this
-// window.ononline = (event) => {
-//   console.log("You are now connected to the network.");
-// };
-
-//Event 10 - Clipboard copy: (scale size of cta bus image)
+//Event 10 - Clipboard copy: (copy text and transform)
 let text = document.querySelectorAll('p');
-
 
 text.forEach(e => {
     e.addEventListener('copy', (event) => {
@@ -88,5 +122,3 @@ text.forEach(e => {
     })
     
 });
-
-
